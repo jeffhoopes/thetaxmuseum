@@ -12,14 +12,27 @@
       margin: auto;
       padding: 20px;
     }
-    h1, h2 {
+    h1, h2, h3 {
       text-align: center;
       color: #ffffff;
+    }
+    .pdf-viewer {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      background-color: white;
+    }
+    .caption {
+      font-style: italic;
+      text-align: center;
+      margin: 20px 0 40px 0;
     }
     .link-button {
       display: block;
       text-align: center;
-      margin-top: 40px;
+      margin-top: 20px;
     }
     .link-button a {
       display: inline-block;
@@ -47,40 +60,6 @@
     nav a:hover {
       color: #ffcc00;
     }
-
-    /* NEW: Styles for featured tax returns */
-    .tax-return-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-    }
-    .tax-return {
-      text-align: center;
-      width: 200px;
-      background-color: #ffffff;
-      color: #4B9CD3;
-      border-radius: 8px;
-      padding: 20px 10px;
-      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .tax-return:hover {
-      transform: scale(1.05);
-    }
-    .tax-return .thumbnail {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    .tax-return a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .tax-return p {
-      margin: 0;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -91,49 +70,28 @@
 
   <h2 style="margin-top: 40px;">Featured Tax Returns</h2>
 
-  <div class="tax-return-grid">
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/vsljoq5i1z3j99f6f8bfc/B_Obama_2011.pdf?rlkey=0r9iwtf7erih85iwp7hft3y21&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Barack Obama – 2011</p>
-      </a>
-    </div>
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/cj37tm6h7kztnahyeiv8o/Bernie-Sanders-Just-Released-His-Tax-Returns.pdf?rlkey=f7aucwcopan9mni2iwia2o53i&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Bernie Sanders – Returns</p>
-      </a>
-    </div>
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/92zks822zo50pslxpm5y7/J_Biden_2022.pdf?rlkey=hfijktvlchh98xbt4xttjxcp8&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Joe Biden – 2022</p>
-      </a>
-    </div>
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/zz365bzxl8hgoy4ef6cz8/K_Harris_2004.pdf?rlkey=ypgdragm1buf036kawif0830w&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Kamala Harris – 2004</p>
-      </a>
-    </div>
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/q49s5lmje9sriovw12p3i/M_Romney_2011.pdf?rlkey=glo8z4zbo1uhirhvl6ocuyf16&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Mitt Romney – 2011</p>
-      </a>
-    </div>
-    <div class="tax-return">
-      <a href="https://www.dropbox.com/scl/fi/uut0opqhvx9wdymk52soi/R_Nixon_1970.pdf?rlkey=qz0r6284ur4jnjy15pahss2a5&raw=1" target="_blank">
-        <div class="thumbnail">📄</div>
-        <p>Richard Nixon – 1970</p>
-      </a>
-    </div>
-  </div>
+  <h3>Barack Obama – 2011</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/vsljoq5i1z3j99f6f8bfc/B_Obama_2011.pdf?rlkey=0r9iwtf7erih85iwp7hft3y21&raw=1"
 
-   <p style="text-align: center; margin-top: 30px;">
-  This vast collection is hosted on Dropbox. Click below to browse the full collection directly in a new tab. 
-  <br>(This will reduce lags and also allow you to view the files without downloading all of them.)
-</p>
+  <h3>Bernie Sanders – Tax Returns</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/cj37tm6h7kztnahyeiv8o/Bernie-Sanders-Just-Released-His-Tax-Returns.pdf?rlkey=f7aucwcopan9mni2iwia2o53i&raw=1"></iframe>
+
+  <h3>Joe Biden – 2022</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/92zks822zo50pslxpm5y7/J_Biden_2022.pdf?rlkey=hfijktvlchh98xbt4xttjxcp8&raw=1"></iframe>
+
+  <h3>Kamala Harris – 2004</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/zz365bzxl8hgoy4ef6cz8/K_Harris_2004.pdf?rlkey=ypgdragm1buf036kawif0830w&raw=1"></iframe>
+
+  <h3>Mitt Romney – 2011</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/q49s5lmje9sriovw12p3i/M_Romney_2011.pdf?rlkey=glo8z4zbo1uhirhvl6ocuyf16&raw=1"></iframe>
+
+  <h3>Richard Nixon – 1970</h3>
+  <iframe class="pdf-viewer" src="https://www.dropbox.com/scl/fi/uut0opqhvx9wdymk52soi/R_Nixon_1970.pdf?rlkey=qz0r6284ur4jnjy15pahss2a5&raw=1"></iframe>
+
+  <p class="caption">
+    This vast collection is hosted on Dropbox. If you experience lag, click below to view the full archive directly in a new tab.
+    (This helps prevent the full set from loading all at once.)
+  </p>
 
   <div class="link-button">
     <a href="https://www.dropbox.com/scl/fo/s9pbuantzceq0abahdjhv/h?rlkey=lbih0aednrojpbizbeawdlyci&dl=0" target="_blank">
