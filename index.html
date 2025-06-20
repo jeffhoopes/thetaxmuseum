@@ -21,26 +21,135 @@
       color: #ffcc00;
       text-decoration: underline;
     }
-    .banner {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
+    .random-gallery {
+      margin-top: 40px;
+      background-color: #ffffff;
+      color: #4B9CD3;
+      padding: 20px;
       border-radius: 8px;
+    }
+    .random-gallery h2 {
+      text-align: center;
       margin-bottom: 20px;
     }
+    .artifact {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      color: #000;
+    }
+    .artifact iframe, .artifact img, .artifact video, .artifact audio {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .artifact p {
+      text-align: center;
+      font-weight: bold;
+    }
   </style>
+  <script>
+    const artifactLinks = [
+      "https://www.dropbox.com/scl/fi/m9ungwfc8gg3934zj02xu/2017-02-21-14.30.26.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/i4lj1ba5lit0w1xrsveu0/2017-02-21-14.34.11.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/tl4j3rlvwraupf5n70nl5/2017-02-21-14.36.21.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/bqujgvyzicgxk2kl4av14/2017-02-21-14.37.19.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/o90vzi1m664v0paysrecm/2017-02-21-14.41.18.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/t05lubkp9igdqnst2vjrn/QUEER_TAXES..pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/y33491ayakwp19uvumomd/The-Income-Tax-as-Penaliser-of-Marriage.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/gccxdoodvkwmiugfzuquk/Golden-Girls-The-Audit.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/0en57r32qo5d1ytdng1ff/Simpsons-taxes.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/bq6y9m92vh0tuzk3ge6l1/the-three-stooges-153-income-tax-sappy-1954-shemp-larry-moe-freedownloadvideo.net.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/kud7kqu5aaw8awdqzm5x8/The-Beverly-Hillbillies-Jed-Pays-His-Income-Tax-Season-1-Episode-28-360p.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/y47z327razmsfqj9xpfa8/f1040-1918-page-001.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/vlvo9uqf5hkdup7fzbudd/f1040-1922-page-001.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/e7k57b9w9zzo5u6g9237b/f1040-1948-page-001.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/88g22iurfzau25iu1p7vi/Heed_Their_Rising_Voices.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/ct5388mth6fwk2yni0550/105438388.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/9qxx8q948xokm6e87kd41/105437243.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/o003deuthhomqvinjcq01/1-s2.0-S0047272717300233-main.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/ctfrv3iipx3ngzqwoyj7o/Tariff-Blues.mp3?raw=1",
+      "https://www.dropbox.com/scl/fi/c5pjb1iy0a8gw3b27p6ts/voicemail-12951412576.m4a?raw=1",
+      "https://www.dropbox.com/scl/fi/o4obztfcuchuyhmf5nxhf/62683638a2dc455f997d4860_ERC-PDF.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/8d4s8ogx3xzu0ty2mm2pf/The-Beatles-The-Taxman.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/5d6m2r1hp5wubwjxa1kcq/Andy-Griffeth-Dooley.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/zloi47hqfneb1k6zphq9a/After-Taxes-Johnny-Cash-1978.mp4?raw=1",
+      "https://www.dropbox.com/scl/fi/dnyb2hfvvf0hc4ze5iwzn/THE_JOVIAL_BATCHELLOR.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/kf661qzgqopoeseppkf3f/Watergate-09186.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/k8x9sm1rfii662zvum5uw/Watergate-11163.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/uhvuvs9hpue2mtl0ndnch/Nixon-papers-deduction.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/ixeqc4saukznf8sdkqbep/B_Obama_2004.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/nl8mc7nthouw32xnssn6t/C_Booker_2009.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/g9w2hnv1v1fizzpbkfg5a/Elizabeth_Warren_2011_Tax-Return.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/ftt7asrljsgmd364qckyg/f1040-1930.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/379iklyuoi9vcxw434ovp/f1040-1951.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/0q95lcpj5k4hnldcsqc9e/f1040-1966.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/fy8m73k241nd21cl925ze/f1040-2020.pdf?raw=1",
+      "https://www.dropbox.com/scl/fi/puajmeegnt6n5bggduhdj/171222-trump-tax-signature-cover-ew-150p_93ac51ea67461e47f07e7599e707a003.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/t6fcyg5l70t8noxjg65fw/bachlor-tax.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/uburswbu5lgm309xr2njx/The_Calling_of_Saint_Matthew.jpg?raw=1",
+      "https://www.dropbox.com/scl/fi/jgz9un3mumpz3g1dc0ubb/Conversion_of_Zacchaeus-_with_Christ_at_right_addressing_the_tax_collector-_who_is_seated_in_a_tree_at_top_center_MET_DP883323.jpg?raw=1"
+    ];
+
+    function getTitleFromUrl(url) {
+      const parts = url.split("/");
+      return parts[parts.length - 1].split("?")[0];
+    }
+
+    function embedCode(url) {
+      const ext = url.split('.').pop().toLowerCase().split('?')[0];
+      if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+        return `<img src="${url}">`;
+      } else if (['mp4', 'mov', 'webm'].includes(ext)) {
+        return `<video controls><source src="${url}" type="video/mp4"></video>`;
+      } else if (['mp3', 'wav', 'm4a'].includes(ext)) {
+        return `<audio controls><source src="${url}" type="audio/mpeg"></audio>`;
+      } else if (['pdf'].includes(ext)) {
+        return `<iframe src="${url}" width="100%" height="500px"></iframe>`;
+      } else {
+        return `<a href="${url}" target="_blank">View File</a>`;
+      }
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function displayArtifacts() {
+      shuffle(artifactLinks);
+      const selected = artifactLinks.slice(0, 3);
+      const container = document.getElementById("random-gallery-container");
+      selected.forEach(url => {
+        const div = document.createElement("div");
+        div.className = "artifact";
+        const title = getTitleFromUrl(url);
+        const embed = embedCode(url);
+        div.innerHTML = `${embed}<p>${title}</p>`;
+        container.appendChild(div);
+      });
+    }
+
+    window.onload = displayArtifacts;
+  </script>
 </head>
 <body>
-  <img class="banner" src="https://www.dropbox.com/scl/fi/8xbxftooqcdczmjalplp0/ChatGPT-Image-Jun-18-2025-09_34_54-PM.png?rlkey=iasu4789zh1ib5sw5lhsaeemq&raw=1" alt="Tax Museum Banner">
-
   <h1>Welcome to The Tax Museum</h1>
-  <p>Click to browse through the expansive, fantastic didgital archives.</p>
+  <p>This is my homepage. Click to browse.</p>
 
   <nav>
     <a href="digitalonly.html">Digital Only Archives</a>
     <a href="presidentialtaxreturncollection.html">Presidential Tax Returns Collection</a>
     <a href="taxreturnssince1864.html">Tax Returns Since 1864</a>
   </nav>
+
+  <div class="random-gallery">
+    <h2>~Enjoy A Taste of What Awaits in the Archives!~</h2>
+    <div id="random-gallery-container"></div>
+  </div>
 </body>
 </html>
-
